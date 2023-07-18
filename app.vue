@@ -1,16 +1,17 @@
 <template>
   <NuxtLayout>
-    <NuxtPage/>
+    <NuxtPage />
   </NuxtLayout>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 
 .page-enter-active,
 .page-leave-active {
   transition: all 0.4s;
 }
+
 .page-enter-from,
 .page-leave-to {
   opacity: 0;

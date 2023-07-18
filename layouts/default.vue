@@ -1,15 +1,14 @@
 <template>
-    <div class="d-flex flex-column">
-        <div>
-            <Navbar />
-        </div>
+    <div class="main-container d-flex flex-column">
+        <Navbar />
         <slot />
-        <div>
-            <Footer />
-        </div>
+        <Footer />
 
     </div>
 </template>
 <style scoped>
-
+.main-container {
+    background-image: url("https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg");
+    background-size: contain;
+}
 </style>
