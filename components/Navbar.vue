@@ -1,14 +1,19 @@
 <template>
     <nav class="navbar navbar-expand-lg bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
-        <div class="container-fluid">
-            <p class="navbar-brand m-0 fs-2 logo" to="/spa">Take it easy!</p>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="container-fluid justify-content-center ">
+            <!-- <p class="navbar-brand m-0 fs-2 logo" to="/spa">Take it easy!</p> -->
+            <button 
+                class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse"
-                id="navbarNav">
-                <ul class="navbar-nav align-items-center fs-5 py-2 fst-italic gap-3 ms-auto me-2">
+            <div class="collapse navbar-collapse justify-content-center " id="navbarNav">
+                <ul class="navbar-nav fs-5 py-2 fst-italic gap-3 me-2">
                     <li class="nav-item">
                         <NuxtLink class="nav-link" to="/spa">Inicio</NuxtLink>
                     </li>

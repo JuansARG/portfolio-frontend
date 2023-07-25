@@ -1,29 +1,23 @@
 <script setup lang="ts">
-const imgURL = ref<string>("https://res.cloudinary.com/dlhdrfzlt/image/upload/v1687475573/1681270328482_brilho.jpg");
+import { UserPortfolio } from 'interfaces/userPortfolio';
 
+const { data: { value: userPortfolio } } = await useFetch<UserPortfolio>('/api/response');
 </script>
-
 <template>
-    <div class="row p-3 m-0">
+    <div class="row p-3 m-0" v-if="userPortfolio">
         <div class="container px-0">
             <div class="perfil-container d-flex flex-column gap-2 mb-3">
                 <div>
-                    <p class="name text-center m-0 fs-1 mb-2">Juan Ignacio Sarmiento</p>
-                    <p class="title fs-3 m-0">Desarrollador Full Stack Java & Vue</p>
+                    <p class="name text-center m-0 fs-1 mb-2">{{ `${userPortfolio.name} ${userPortfolio.surname}` }}</p>
+                    <p class="title fs-3 m-0">{{ userPortfolio.title }}</p>
                 </div>
                 <div class="img-container align-self-center">
-                    <img :src="imgURL" class="img-fluid rounded-circle shadow-lg" alt="Mi foto de perfil">
+                    <img :src="userPortfolio.imageURL" class="img-fluid rounded-circle shadow-lg" alt="Mi foto de perfil">
                 </div>
             </div>
             <div class="text-container col col-sm-7 p-2 mb-2">
                 <p class="text-profile fs-5 m-0">
-                    Autodidacta, perseverante y en constante formación,
-                    siempre me cuestiono como funciona las cosas, motivo por el cual
-                    me gusta dedicarle tiempo para comprender la razón de ser de
-                    de ellas, lo que me lleva a aprender algo nuevo todos los días
-                    en pos de desarrollar código limpio, reutilizable,
-                    óptimo, poder implementar las mejores prácticas y sacar el máximo provecho a las
-                    herramientas/tecnologías en cuestión.
+                    {{ userPortfolio.profile }}
                 </p>
             </div>
             <div class="icons-container d-flex gap-2 justify-content-end col col-sm-7">
@@ -44,12 +38,14 @@ const imgURL = ref<string>("https://res.cloudinary.com/dlhdrfzlt/image/upload/v1
 .row {
     min-height: 76.9vh;
     color: white;
+    background-image: url("https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg");
+    background-size: cover;
 }
 .img-container {
     max-width: 18rem;
 }
 .name {
-    font-size: 3rem !important;
+    font-size: 4.2rem !important;
     font-family: 'Dancing Script', cursive;
     line-height: 1;
 }
@@ -96,7 +92,7 @@ a {
         gap: 1.5rem !important;
     }
     .row{
-        min-height: 78.3vh;
+        min-height: 82.7vh;
         max-height: 100vh;
     }
 }
