@@ -19,26 +19,25 @@ const skillsOrderByTitle: Skill[] = props.skills.sort((a, b) => {
         class="skills-list col-12 col-md-7 d-flex flex-column align-items-center mt-2" 
         v-if="skills.length > 0">
         <p 
-            class="text-center text-white text-capitalize border-bottom border-end rounded-5 w-75" 
-            v-text="skills[0].typeSkill.toLowerCase()" />
+            class="text-center text-white text-capitalize w-75" 
+            v-text="`<${skills[0].typeSkill.toLowerCase()}/>`" />
         <ul class="list-group list-group-flush align-items-center w-100">
             <template v-for="{ title, typeSkill } in skillsOrderByTitle">
                 <li 
-                    class="list-group-item list-group-item-success list-group-item-action text-capitalize mb-1 text-center font-monospace"
+                    class="list-group-item list-group-item-success list-group-item-action mb-1 text-center font-monospace"
                     v-if="typeSkill === TypeSkill.Soft" 
-                    v-text="title.toLowerCase()"/>
+                    v-text="title"/>
                 <li 
-                    class="list-group-item list-group-item-danger list-group-item-action text-capitalize mb-1 text-center font-monospace"
+                    class="list-group-item list-group-item-danger list-group-item-action mb-1 text-center font-monospace"
                     v-else 
-                    v-text="title.toUpperCase()"/>
+                    v-text="title"/>
             </template>
         </ul>
     </div>
 </template>
 <style scoped>
 p {
-    font-size: 3.8rem !important;
-    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem !important;
 }
 
 /* Media queries */

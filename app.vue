@@ -1,3 +1,9 @@
+<script setup lang="ts">
+  useHead({
+    titleTemplate: '%s - Juan I. Sarmiento'
+  })
+</script>
+
 <template>
   <NuxtLayout>
     <NuxtPage />
@@ -9,7 +15,7 @@
 
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 
 .page-enter-from,

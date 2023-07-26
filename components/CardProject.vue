@@ -10,7 +10,7 @@ const project = toRef(props, 'project');
 
 </script>
 <template>
-    <div v-if="project" class="card border-dark" style="width: 22rem;">
+    <div v-if="project" class="card border-dark shadow-lg" style="width: 22rem;">
         <img :src="project.imageURL" class="card-img-top" alt="...">
         <div class="card-body card-body-text">
             <h5 class="card-title text-decoration-underline fw-bold ">{{ project.title }}</h5>
@@ -58,6 +58,12 @@ const project = toRef(props, 'project');
 .card {
     font-family: 'Roboto Slab', serif;
     height: 45rem;
+    transition: all 400ms ease;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    z-index: 999;
 }
 
 .card-body-text {

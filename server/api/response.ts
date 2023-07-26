@@ -1,4 +1,5 @@
-export default () => {
+import { UserPortfolio } from '../../interfaces/userPortfolio';
+export default eventHandler(():UserPortfolio => {
   return {
     id: 1,
     name: "Juan",
@@ -6,9 +7,9 @@ export default () => {
     age: 27,
     city: "Tandil, Buenos Aires, Argentina",
     email: "juansarmientog96@gmail.com",
-    title: "Desarrollador FullStack Java & Vue",
+    title: "Desarrollador Full Stack Java & Vue",
     profile:
-    "Soy Desarrollador Web FullStack en constante formación, con experiencia en Backend en el desarrollo de API REST con Java y Spring; respecto al Frontend me desenvuelvo sólidamente con Vue y en menor medida con React, con predisposición y facilidad para el aprendizaje, con muchas ganas de aportar mi granito de arena y crecer tanto personal como profesionalmente.",
+      "Soy Desarrollador Web FullStack en constante formación, con experiencia en Backend en el desarrollo de API REST con Java y Spring; respecto al Frontend me desenvuelvo sólidamente con Vue y en menor medida con React, con predisposición y facilidad para el aprendizaje, con muchas ganas de aportar mi granito de arena y crecer tanto personal como profesionalmente.",
     imageURL:
       "https://res.cloudinary.com/dlhdrfzlt/image/upload/v1687475573/1681270328482_brilho.jpg",
     skills: [
@@ -19,7 +20,7 @@ export default () => {
       },
       {
         id: 6,
-        title: "VITE",
+        title: "Vite",
         typeSkill: "HARD",
       },
       {
@@ -29,7 +30,7 @@ export default () => {
       },
       {
         id: 18,
-        title: "Spring Security",
+        title: "Spring Security && JWT",
         typeSkill: "HARD",
       },
       {
@@ -49,7 +50,7 @@ export default () => {
       },
       {
         id: 4,
-        title: "BOOTSTRAP 5",
+        title: "Bootstrap 5",
         typeSkill: "HARD",
       },
       {
@@ -59,7 +60,7 @@ export default () => {
       },
       {
         id: 16,
-        title: "Spring Framework",
+        title: "Spring Framework w/ Spring Boot",
         typeSkill: "HARD",
       },
       {
@@ -69,7 +70,7 @@ export default () => {
       },
       {
         id: 23,
-        title: "GIT & GITHUB",
+        title: "Git & Github",
         typeSkill: "HARD",
       },
       {
@@ -84,7 +85,7 @@ export default () => {
       },
       {
         id: 7,
-        title: "AXIOS",
+        title: "Axios",
         typeSkill: "HARD",
       },
       {
@@ -94,17 +95,17 @@ export default () => {
       },
       {
         id: 9,
-        title: "REACT",
+        title: "React",
         typeSkill: "HARD",
       },
       {
         id: 20,
-        title: "MOCKITO",
+        title: "Mockito",
         typeSkill: "HARD",
       },
       {
         id: 8,
-        title: "JAVASCRIPT",
+        title: "Javascript",
         typeSkill: "HARD",
       },
       {
@@ -114,12 +115,12 @@ export default () => {
       },
       {
         id: 10,
-        title: "TYPESCRIPT",
+        title: "Typescript",
         typeSkill: "HARD",
       },
       {
         id: 11,
-        title: "VUE 2 y 3",
+        title: "Vue Options API & Composition API",
         typeSkill: "HARD",
       },
       {
@@ -129,7 +130,7 @@ export default () => {
       },
       {
         id: 14,
-        title: "JEST",
+        title: "Jest",
         typeSkill: "HARD",
       },
       {
@@ -154,7 +155,7 @@ export default () => {
       },
       {
         id: 5,
-        title: "NPM / YARN",
+        title: "NPM",
         typeSkill: "HARD",
       },
       {
@@ -174,17 +175,17 @@ export default () => {
       },
       {
         id: 19,
-        title: "JUNIT",
+        title: "Junit",
         typeSkill: "HARD",
       },
       {
         id: 21,
-        title: "POSTGRESQL",
+        title: "PostgreSQL",
         typeSkill: "HARD",
       },
       {
         id: 22,
-        title: "MYSQL",
+        title: "MySQL",
         typeSkill: "HARD",
       },
       {
@@ -230,7 +231,7 @@ export default () => {
         educationEntity: "Mindhub",
         inProgress: false,
         startDate: "10/09/2022",
-        endDate: "10/09/2022",
+        endDate: "13/02/2023",
         certificateURL:
           "https://res.cloudinary.com/dhcurgqlc/image/upload/v1683863309/insignia_JAVA_cxpb1z.png",
       },
@@ -312,4 +313,4 @@ export default () => {
       },
     ],
   };
-};
+});

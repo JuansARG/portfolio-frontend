@@ -1,33 +1,45 @@
 <script setup lang="ts">
 import { UserPortfolio } from 'interfaces/userPortfolio';
 
+useHead({
+    title: 'Inicio'
+});
+
 const { data: { value: userPortfolio } } = await useFetch<UserPortfolio>('/api/response');
+
+
 </script>
 <template>
     <div class="row p-3 m-0" v-if="userPortfolio">
         <div class="container px-0">
             <div class="perfil-container d-flex flex-column gap-2 mb-3">
                 <div>
-                    <p class="name text-center m-0 fs-1 mb-2">{{ `${userPortfolio.name} ${userPortfolio.surname}` }}</p>
-                    <p class="title fs-3 m-0">{{ userPortfolio.title }}</p>
+                    <p
+                        class="name text-center m-0 mb-3 fw-bold border-bottom pb-2"
+                        v-text="`${userPortfolio.name} I. ${userPortfolio.surname}`"/>
+                    <p 
+                        class="title text-center fs-2 m-0 fst-italic"
+                        v-text="userPortfolio.title"/>
                 </div>
                 <div class="img-container align-self-center">
-                    <img :src="userPortfolio.imageURL" class="img-fluid rounded-circle shadow-lg" alt="Mi foto de perfil">
+                    <img 
+                        :src="userPortfolio.imageURL" 
+                        class="img-fluid rounded-circle shadow-lg" alt="Mi foto de perfil">
                 </div>
             </div>
             <div class="text-container col col-sm-7 p-2 mb-2">
-                <p class="text-profile fs-5 m-0">
-                    {{ userPortfolio.profile }}
-                </p>
+                <p
+                    class="text-profile fs-5 m-0"
+                    v-text="userPortfolio.profile"/>
             </div>
             <div class="icons-container d-flex gap-2 justify-content-end col col-sm-7">
-                <NuxtLink class="nav-link" to="https://www.linkedin.com/in/juanisat/" target="_blank">
+                <NuxtLink class="nav-link border p-1 rounded-3 " to="https://www.linkedin.com/in/juanisat/" target="_blank">
                     <Icon size="50px" name="devicon:linkedin" />
                 </NuxtLink>
-                <NuxtLink class="nav-link" to="https://github.com/JuansARG" target="_blank">
+                <NuxtLink class="nav-link border p-1 rounded-3" to="https://github.com/JuansARG" target="_blank">
                     <Icon size="50px" name="mingcute:github-fill" />
                 </NuxtLink>
-                <NuxtLink class="nav-link" to="mailto:juansarmientog96@gmail.com" target="_blank">
+                <NuxtLink class="nav-link border p-1 rounded-3" to="mailto:juansarmientog96@gmail.com" target="_blank">
                     <Icon size="50px" name="logos:google-gmail" />
                 </NuxtLink>
             </div>
@@ -36,33 +48,28 @@ const { data: { value: userPortfolio } } = await useFetch<UserPortfolio>('/api/r
 </template>
 <style scoped>
 .row {
-    min-height: 76.9vh;
+    min-height: 80vh;
+    background-color: #3e818c;
     color: white;
-    background-image: url("https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg");
-    background-size: cover;
+    font-family: 'Roboto Slab', serif;
 }
 .img-container {
     max-width: 18rem;
 }
 .name {
     font-size: 4.2rem !important;
-    font-family: 'Dancing Script', cursive;
     line-height: 1;
 }
-.title {
-    font-family: 'Roboto Slab', serif;
-    text-align: center;
-    text-decoration: underline;
-}
+
 .text-container {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     backdrop-filter: blur(8px);
 }
 .text-profile {
-    font-family: 'Roboto Slab', serif;
     text-align: justify;
 }
+
 a {
     cursor: pointer;
 }
@@ -70,6 +77,9 @@ a {
 /* Media queries */
 /* Estilos para pantallas más grandes (por ejemplo, tablets y escritorios) */
 @media screen and (min-width: 767px) {
+    .row {
+        min-height: 85vh;
+    }
     .container {
         display: flex;
         flex-direction: column;
@@ -92,8 +102,15 @@ a {
         gap: 1.5rem !important;
     }
     .row{
-        min-height: 82.7vh;
-        max-height: 100vh;
+        min-height: 81.4vh;
     }
+}
+
+
+/* Estilos para pantallas muy muy grandes*/
+@media screen and (min-width: 1439px) {
+.row{
+    min-height: 79.3vh;
+}
 }
 </style>
