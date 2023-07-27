@@ -9,7 +9,7 @@ export default eventHandler(():UserPortfolio => {
     email: "juansarmientog96@gmail.com",
     title: "Desarrollador Full Stack Java & Vue",
     profile:
-      "Soy Desarrollador Web FullStack en constante formación, con experiencia en Backend en el desarrollo de API REST con Java y Spring; respecto al Frontend me desenvuelvo sólidamente con Vue y en menor medida con React, con predisposición y facilidad para el aprendizaje, con muchas ganas de aportar mi granito de arena y crecer tanto personal como profesionalmente.",
+      "Soy Desarrollador Web Full Stack en constante formación, actualmente me encuentro instruyéndome en el mundo de micro servicios con Spring Cloud, asimismo decidí profundizar en metodologías Agiles como Scrum orientado al rol del Product Owner. Me interesa y entusiasma la lógica de negocio y poder crear soluciones a problemas, crear nuevas implementaciones a problemas ya resueltos con el fin de mejorar la experiencia de usuario, optimizar el código y que este sea escalable y sostenible a lo largo del tiempo.",
     imageURL:
       "https://res.cloudinary.com/dlhdrfzlt/image/upload/v1687475573/1681270328482_brilho.jpg",
     skills: [

@@ -27,19 +27,19 @@ const { data: { value: userPortfolio } } = await useFetch<UserPortfolio>('/api/r
                         class="img-fluid rounded-circle shadow-lg" alt="Mi foto de perfil">
                 </div>
             </div>
-            <div class="text-container col col-sm-7 p-2 mb-2">
+            <div class="text-container col col-sm-7 p-2 mb-2 shadow-sm">
                 <p
                     class="text-profile fs-5 m-0"
                     v-text="userPortfolio.profile"/>
             </div>
             <div class="icons-container d-flex gap-2 justify-content-end col col-sm-7">
-                <NuxtLink class="nav-link border p-1 rounded-3 " to="https://www.linkedin.com/in/juanisat/" target="_blank">
+                <NuxtLink class="nav-link border p-1 rounded-3 shadow-sm" to="https://www.linkedin.com/in/juanisat/" target="_blank">
                     <Icon size="50px" name="devicon:linkedin" />
                 </NuxtLink>
-                <NuxtLink class="nav-link border p-1 rounded-3" to="https://github.com/JuansARG" target="_blank">
+                <NuxtLink class="nav-link border p-1 rounded-3 shadow-sm" to="https://github.com/JuansARG" target="_blank">
                     <Icon size="50px" name="mingcute:github-fill" />
                 </NuxtLink>
-                <NuxtLink class="nav-link border p-1 rounded-3" to="mailto:juansarmientog96@gmail.com" target="_blank">
+                <NuxtLink class="nav-link border p-1 rounded-3 shadow-sm" to="mailto:juansarmientog96@gmail.com" target="_blank">
                     <Icon size="50px" name="logos:google-gmail" />
                 </NuxtLink>
             </div>
@@ -49,9 +49,11 @@ const { data: { value: userPortfolio } } = await useFetch<UserPortfolio>('/api/r
 <style scoped>
 .row {
     min-height: 80vh;
-    background-color: #3e818c;
     color: white;
     font-family: 'Roboto Slab', serif;
+
+    background-color: #3e818c;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2353929d' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .img-container {
     max-width: 18rem;

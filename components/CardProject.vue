@@ -17,7 +17,7 @@ const project = toRef(props, 'project');
             <p class="card-text">{{ project.description }}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item text-center fw-semibold  text-decoration-underline">Tecnologias principales</li>
+            <li class="list-group-item text-center fw-semibold text-decoration-underline">Tecnologias principales</li>
 
             <template v-if="project.title == 'Maps App'">
                 <li class="list-group-item">Typescript</li>
@@ -83,7 +83,6 @@ const project = toRef(props, 'project');
     }
 
 }
-
 /* Estilos para pantallas muy grandes (por ejemplo, computadoras de escritorio) */
 @media screen and (min-width: 1023px) {}
 </style>

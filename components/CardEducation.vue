@@ -14,7 +14,7 @@ const formation = toRef(props, 'formation');
     <div class="card mb-3">
         <img 
             :src="formation.certificateURL" 
-            class="card-img-top border-bottom border-dark-subtle" 
+            class="card-img-top img-fluid border-bottom border-dark-subtle" 
             alt="Certificado">
         <div class="card-body">
             <p 
@@ -35,8 +35,12 @@ const formation = toRef(props, 'formation');
     </div>
 </template>
 <style scoped>
+.card-img-top{
+    height: 25rem;
+}
 .card {
     font-family: 'Roboto Slab', serif;
+    
 }
 
 
@@ -45,5 +49,16 @@ const formation = toRef(props, 'formation');
 @media screen and (min-width: 767px) {}
 
 /* Estilos para pantallas muy grandes (por ejemplo, computadoras de escritorio) */
-@media screen and (min-width: 1023px) {}
+@media screen and (min-width: 1023px) {
+    .card {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1919px) {
+    .card {
+        width: 45%;
+
+    }
+}
 </style>
