@@ -40,16 +40,16 @@ const project = toRef(props, 'project');
 
         </ul>
         <div class="card-body text-end">
-            <a :href="project.repositoryURL"
+            <a :href="project.repositoryURL" target="_blank"
                 class="card-link link-repository text-decoration-none text-success fw-bold border rounded-top-5 py-2 px-3 border-success">Repositorio</a>
             
             <template v-if="project.title == 'The Camp'">
-                <a :href="project.deployURL"
+                <a :href="project.deployURL" target="_blank"
                     class="card-link link-video text-decoration-none text-danger fw-bold border rounded-bottom-5 py-2 px-3 border-danger ms-1">Video</a>
             </template>
 
             <template v-else>
-                <a :href="project.deployURL"
+                <a :href="project.deployURL" target="_blank"
                     class="card-link link-deploy text-decoration-none text-danger fw-bold border rounded-bottom-5 py-2 px-3 border-danger ms-1">Deploy</a>
             </template>
         </div>

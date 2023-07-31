@@ -268,7 +268,7 @@ export const useGlobalState = () =>
           imageURL:
             "https://res.cloudinary.com/dlhdrfzlt/image/upload/v1689175176/pet-shop_umth1d.jpg",
           repositoryURL:
-            "https://res.cloudinary.com/dlhdrfzlt/image/upload/v1689175176/pet-shop_umth1d.jpg",
+            "https://github.com/JuansARG/FourLegs-Html-Css-VueJs",
           deployURL:
             "https://juan-sarmiento-pet-shop-four-legs.netlify.app/index.html",
         },
