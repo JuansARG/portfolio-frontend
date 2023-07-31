@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { UserPortfolio } from 'interfaces/userPortfolio';
 import { Formation } from 'interfaces/userPortfolio';
 
 useHead({
     title: 'Formacion'
 })
 
-const { data: { value: userPortfolio } } = await useFetch<UserPortfolio>('/api/response');
+const userPortfolio = useGlobalState();
+
 
 const parseStringToNumber = (startDate:String):Number => {
     const arrayStartDate: String[] = startDate.split('/');
@@ -24,7 +24,7 @@ const compareFn = (a:Formation, b:Formation) => {
     return +fechaA - +fechaB;
 }
 
-userPortfolio?.formations.sort(compareFn);
+userPortfolio?.value.formations.sort(compareFn);
 
 
 </script>

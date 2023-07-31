@@ -24,7 +24,7 @@
                         <NuxtLink class="nav-link " to="/skills">Habilidades</NuxtLink>
                     </li>
                     <li class="nav-item">
-                        <NuxtLink class="nav-link " to="/education">Formacion</NuxtLink>
+                        <NuxtLink class="nav-link " to="/education">Formación</NuxtLink>
                     </li>
                 </ul>
             </div>

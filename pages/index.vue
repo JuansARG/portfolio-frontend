@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { UserPortfolio } from 'interfaces/userPortfolio';
+import { useGlobalState } from '../composables/useState';
 
 useHead({
     title: 'Inicio'
 });
 
-const { data: { value: userPortfolio } } = await useFetch<UserPortfolio>('/api/response');
+const userPortfolio = useGlobalState();
 
 
 </script>
@@ -112,7 +112,7 @@ a {
 /* Estilos para pantallas muy muy grandes*/
 @media screen and (min-width: 1439px) {
 .row{
-    min-height: 79.3vh;
+    min-height: 80vh;
 }
 }
 </style>

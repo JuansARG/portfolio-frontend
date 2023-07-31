@@ -5,14 +5,14 @@ useHead({
     title: 'Habilidades'
 })
 
-const { data: { value: userPortfolio } } = await useFetch<UserPortfolio>('/api/response');
+const userPortfolio = useGlobalState();
 
 let softSkills: Skill[] = [];
 let hardSkills: Skill[] = [];
 
 if (userPortfolio) {
-    softSkills = userPortfolio.skills.filter(skill => skill.typeSkill === TypeSkill.Soft);
-    hardSkills = userPortfolio.skills.filter(skill => skill.typeSkill === TypeSkill.Hard);
+    softSkills = userPortfolio.value.skills.filter(skill => skill.typeSkill === TypeSkill.Soft);
+    hardSkills = userPortfolio.value.skills.filter(skill => skill.typeSkill === TypeSkill.Hard);
 }
 
 

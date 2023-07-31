@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { UserPortfolio } from '../interfaces/userPortfolio';
-
 useHead({
     title: 'Proyectos'
 });
 
-const { data: { value: userPortfolio } } = await useFetch<UserPortfolio>('/api/response');
+const userPortfolio = useGlobalState();
 
 
 </script>
