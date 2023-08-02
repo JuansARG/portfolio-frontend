@@ -24,8 +24,14 @@ export default defineNuxtConfig({
       mode: 'out-in' 
     },
   },
-  devtools: { enabled: false },
   modules: [
-    'nuxt-icon'
+    'nuxt-icon',
   ],
+  runtimeConfig: {
+    MAILHOST: process.env.MAILHOST,
+    MAILPORT: process.env.MAILPORT,
+    MAILUSER: process.env.MAILUSER,
+    MAILPASSWORD: process.env.MAILPASSWORD,
+    CONTACTMAIL: process.env.CONTACTMAIL,
+  }
 });

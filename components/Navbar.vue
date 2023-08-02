@@ -26,6 +26,9 @@
                     <li class="nav-item">
                         <NuxtLink class="nav-link " to="/education">Formación</NuxtLink>
                     </li>
+                    <li class="nav-item">
+                        <NuxtLink class="nav-link " to="/contact">Contacto</NuxtLink>
+                    </li>
                 </ul>
             </div>
         </div>

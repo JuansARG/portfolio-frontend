@@ -9,9 +9,13 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@types/node": "^18.16.19",
     "nuxt": "^3.6.2",
-    "nuxt-icon": "^0.4.2"
+    "nuxt-icon": "^0.4.2",
+    "@types/nodemailer": "^6.4.9",
+    "@types/validator": "^13.9.0"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.4",
+    "validator": "^13.9.0"
   }
 }
