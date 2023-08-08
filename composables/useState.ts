@@ -12,7 +12,7 @@ export const useGlobalState = () =>
       email: "juansarmientog96@gmail.com",
       title: "Desarrollador Web Full Stack Java & Vue",
       profile:
-        "Soy un apasionado desarrollador enfocado en la exploración de microservicios en la nube y en formarme como Product Owner. Mi objetivo es crear soluciones innovadoras y escalables que impulsen el éxito de los proyectos. Actualmente estoy introduciendo en tecnologías de la nube, asimismo poseeo amplia experiencia en desarrollo de software, me interesa encontrar las mejores formas de optimizar la entrega de productos y servicios.",
+        "Soy un apasionado desarrollador enfocado en la exploración de microservicios en la nube y en formarme como Product Owner. Mi objetivo es crear soluciones innovadoras y escalables que impulsen el éxito de los proyectos. Actualmente me estoy introduciendo en tecnologías de la nube, asimismo poseo amplia experiencia en desarrollo de software, me interesa encontrar las mejores formas de optimizar la entrega de productos y servicios.",
       imageURL:
         "https://res.cloudinary.com/dlhdrfzlt/image/upload/v1687475573/1681270328482_brilho.jpg",
       skills: [

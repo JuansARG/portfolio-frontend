@@ -11,6 +11,11 @@ interface Data {
     message: string;
 };
 
+interface FieldError {
+    field: string;
+    error: string
+};
+
 const transporter = createTransport({
     host: config.MAILHOST,
     port: +config.MAILPORT,
@@ -21,50 +26,70 @@ const transporter = createTransport({
     },
 });
 
-export default defineEventHandler(async(event) => {
-        
+export default defineEventHandler( async(event) => {
+
+    try {
         const body = await readBody<Data>(event);
 
-        const resultIsValid = isValid(body);
+        await isValid(body)
+            .then(async (data) => {
 
-        if ( resultIsValid == true ){
-            const mail = await transporter.sendMail({
-                from: `"${body.name}" <${body.email}>`,
-                to: config.CONTACTMAIL,
-                subject: body.subject,
-                text: body.message,
-                html: body.message,
-            });
-        } else {
-            throw createError({
-                statusCode: 400,
-                statusMessage: String(resultIsValid)
+                const mail = await transporter.sendMail({
+                    from: `"${body.name}" <${body.email}>`,
+                    to: config.CONTACTMAIL,
+                    subject: body.subject,
+                    text: body.message,
+                    html: body.message,
+                });
+
+                console.log('Message sent: %s', mail.messageId);
+				console.log('Preview URL: %s', getTestMessageUrl(mail));
+				return Promise.resolve();
             })
-        }
+            .catch((errors) => {
+                return Promise.reject(errors);
+            });
 
-        return setResponseStatus(event, 200);
+        return 'Email enviado!';
+    } catch (error) {
+        sendError(event, createError({
+            statusCode: 400,
+            statusMessage: JSON.stringify(error)
+        }));
+    }
 });
 
-interface FieldError {
-    field: string;
-    error: string
-};
-
-function isValid(body: Data): boolean | FieldError[] {
+function isValid(body: Data): Promise<Data | FieldError[]> {
+    
     const errors: FieldError[] = [];
 
-    if (validator.isEmpty(body.email || '')){
+    if (validator.isEmpty(body.email || ''))
         errors.push({
             field: 'email',
             error: 'Field is required.'
         });
-    };
-        
 
+    if (validator.isEmpty(body.name || ''))
+		errors.push({ field: 'name', error: 'Field is required.' });
+
+	if (validator.isEmpty(body.subject || ''))
+		errors.push({ field: 'subject', error: 'Field is required.' });
+
+	if (validator.isEmpty(body.message || ''))
+		errors.push({ field: 'message', error: 'Field is required.' });
+
+	if (!validator.isEmail(body.email || ''))
+		errors.push({ field: 'email', error: 'Field should be a valid email.' });
+        
     if (errors.length > 0){
-        return errors
+        return Promise.reject<FieldError[]>(errors);
     } else {
-        return true;
+        return Promise.resolve<Data>({
+            name: validator.escape(body.name),
+            email: validator.normalizeEmail(body.email) as string,
+            subject: validator.escape(body.name),
+            message: validator.escape(body.message),
+        });
     };
 } 
 
