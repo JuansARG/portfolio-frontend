@@ -1,10 +1,13 @@
 import { createTransport, getTestMessageUrl } from 'nodemailer';
 import validator from 'validator';
+import { useMailSender } from '../../composables/useMailSender';
 
 
 const config = useRuntimeConfig();
 
-interface Data {
+const { transporter } = useMailSender();
+
+interface DataEmail {
     name: string;
     email: string;
     subject: string;
@@ -16,34 +19,33 @@ interface FieldError {
     error: string
 };
 
-const transporter = createTransport({
-    host: config.MAILHOST,
-    port: +config.MAILPORT,
-    secure: false,
-    auth: {
-        user: config.MAILUSER,
-        pass: config.MAILPASSWORD
-    },
-});
-
 export default defineEventHandler( async(event) => {
 
     try {
-        const body = await readBody<Data>(event);
+        const body = await readBody<DataEmail>(event);
 
         await isValid(body)
-            .then(async (data) => {
+            .then(async () => {
 
-                const mail = await transporter.sendMail({
-                    from: `"${body.name}" <${body.email}>`,
+                await transporter.sendMail({
+                    from: config.MAILUSER,
                     to: config.CONTACTMAIL,
-                    subject: body.subject,
+                    subject: `Mensaje de: <${body.email}> Asunto: ${body.subject}`,
                     text: body.message,
-                    html: body.message,
                 });
 
-                console.log('Message sent: %s', mail.messageId);
-				console.log('Preview URL: %s', getTestMessageUrl(mail));
+                await transporter.sendMail({
+                    from: config.MAILUSER,
+                    to: body.email,
+                    subject: 'Respuesta Automática - Gracias por ponerte en contacto conmigo!',
+                    html: `<p>Estimado/a <b>${body.name}</b>,</p>
+                    <p>He recibido su mensaje y le agradesco su interés en mi servicios.</p>
+                    <p>Revisare su mensaje y me pondre en contacto con usted lo antes posible.</p>
+                    <p>¡Gracias nuevamente por su interés en mí!</p>
+                    <p>Saludos cordiales,</p>
+                    <p>Juan Ignacio Sarmiento</p>`,
+                });
+
 				return Promise.resolve();
             })
             .catch((errors) => {
@@ -59,7 +61,7 @@ export default defineEventHandler( async(event) => {
     }
 });
 
-function isValid(body: Data): Promise<Data | FieldError[]> {
+function isValid(body: DataEmail): Promise<DataEmail | FieldError[]> {
     
     const errors: FieldError[] = [];
 
@@ -84,7 +86,7 @@ function isValid(body: Data): Promise<Data | FieldError[]> {
     if (errors.length > 0){
         return Promise.reject<FieldError[]>(errors);
     } else {
-        return Promise.resolve<Data>({
+        return Promise.resolve<DataEmail>({
             name: validator.escape(body.name),
             email: validator.normalizeEmail(body.email) as string,
             subject: validator.escape(body.name),

@@ -10,7 +10,7 @@ const year = ref<number>(new Date().getFullYear());
 </template>
 <style scoped>
 div {
-    background-color: #155f6a;
+    background-color: #53929d!important;
     font-family: 'Roboto Slab', serif;
 }
 </style>

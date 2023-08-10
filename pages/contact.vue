@@ -49,19 +49,19 @@ const submit = async(formData: Form) => {
 </script>
 <template>
     <div class="row p-3 m-0">
-        <div class="container">
+        <div class="container col-12 col-md-8 col-xl-8 col-xxl-5">
             <p class="text-center m-0 mb-3 fw-bold border-bottom pb-2">Contacto</p>
             <form class="d-flex flex-column align-items-center py-4 text-white gap-2" @submit.prevent="submit(form)">
                 <div class="d-flex flex-column w-100 gap-2">
-                    <label for="name">Nombre:</label>
+                    <label for="name" class="text-decoration-underline">Nombre:</label>
                     <input v-model="form.name" type="text" name="name" required>
-                    <label for="email">Email:</label>
+                    <label for="email" class="text-decoration-underline">Email:</label>
                     <input v-model="form.email" type="email" name="email" required>
-                    <label for="subject">Asunto:</label>
+                    <label for="subject" class="text-decoration-underline">Asunto:</label>
                     <input v-model="form.subject" type="text" name="subject" required>
                 </div>
                 <div class="d-flex flex-column w-100 gap-2">
-                    <label for="messsage">Mensaje:</label>
+                    <label for="messsage" class="text-decoration-underline">Mensaje:</label>
                     <textarea v-model="form.message" type="text" name="message" rows="6" required />
                 </div>
                 <button class="btn mt-2 fs-3 text-white border border-2" type="submit">
