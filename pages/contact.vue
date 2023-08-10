@@ -4,6 +4,8 @@ useHead({
     title: 'Contacto'
 });
 
+const config = useRuntimeConfig();
+
 interface Form {
     name: string;
     email: string;
@@ -25,7 +27,7 @@ const form = ref<Form>({
 
 const submit = async(formData: Form) => {
     waiting.value = true;
-    await useFetch('/api/contact', {
+    await useFetch(`${ config.URL }/api/contact`, {
         method: 'POST',
         body: formData,
     }).then(() => {
