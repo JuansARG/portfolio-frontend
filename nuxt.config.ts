@@ -33,5 +33,6 @@ export default defineNuxtConfig({
     MAILUSER: process.env.MAILUSER,
     MAILPASSWORD: process.env.MAILPASSWORD,
     CONTACTMAIL: process.env.CONTACTMAIL,
+    URL_DEPLOY: process.env.URL_DEPLOY
   }
 });
