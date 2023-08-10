@@ -27,7 +27,7 @@ const form = ref<Form>({
 
 const submit = async(formData: Form) => {
     waiting.value = true;
-    await useFetch(`${ config.URL_DEPLOY }/api/contact`, {
+    await useFetch('/api/contact', {
         method: 'POST',
         body: formData,
     }).then(() => {
