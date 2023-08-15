@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { UserPortfolio, Skill, TypeSkill } from '../interfaces/userPortfolio';
+import { useGlobalState } from '../state/useState';
+import { Skill, TypeSkill } from '../interfaces/userPortfolio';
+
 
 useHead({
     title: 'Habilidades'

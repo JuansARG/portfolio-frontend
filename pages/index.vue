@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { useGlobalState } from '../composables/useState';
+import { useGlobalState } from '../state/useState';
+import { UserPortfolio } from '../interfaces/userPortfolio';
 
 useHead({
     title: 'Inicio'
 });
 
 const userPortfolio = useGlobalState();
+
+// const { data } = await useFetch<UserPortfolio>('http://localhost:8080/api/v1/users/1');
+// console.log(data.value)
 
 
 </script>

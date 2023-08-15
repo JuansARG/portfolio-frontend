@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -33,6 +34,8 @@ export default defineNuxtConfig({
     MAILUSER: process.env.MAILUSER,
     MAILPASSWORD: process.env.MAILPASSWORD,
     CONTACTMAIL: process.env.CONTACTMAIL,
-    URL_DEPLOY: process.env.URL_DEPLOY
-  }
+    URL_DEV: process.env.URL_DEV,
+    BACKEND_USER: process.env.BACKEND_USER,
+    BACKEND_PASS: process.env.BACKEND_PASS,
+  },
 });

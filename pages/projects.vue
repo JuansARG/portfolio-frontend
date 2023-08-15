@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useGlobalState } from '../state/useState';
+
 useHead({
     title: 'Proyectos'
 });

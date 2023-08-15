@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { useGlobalState } from '../state/useState';
 import { Formation } from 'interfaces/userPortfolio';
+
 
 useHead({
     title: 'Formación'
