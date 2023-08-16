@@ -19,10 +19,7 @@ export const useAuth = async() => {
                 email: config.BACKEND_USER,
                 password: config.BACKEND_PASS
             },
-            credentials: 'include',
             headers: headers,
-
-            
         });
         
         token.value = data.value?.token!;
