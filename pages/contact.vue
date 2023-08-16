@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 useHead({
     title: 'Contacto'
 });
@@ -22,14 +21,13 @@ const form = ref<Form>({
     message: '',
 });
 
-
-const submit = async(formData: Form) => {
+const submit = (formData: Form) => {
     waiting.value = true;
 
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
 
-    await useFetch(`http://localhost:8080/api/v1/contact`, {
+    useFetch(`http://localhost:8080/api/v1/contact`, {
         method: 'POST',
         body: formData,
         headers: headers,
@@ -49,8 +47,6 @@ const submit = async(formData: Form) => {
         waiting.value = false;
     });
 }
-
-
 </script>
 <template>
     <div class="row p-3 m-0">

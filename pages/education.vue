@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { useGlobalState } from '../state/useState';
 import { Formation } from 'interfaces/userPortfolio';
-
 
 useHead({
     title: 'Formación'
 })
 
-const userPortfolio = useGlobalState();
-
+const globalState = useGlobalState();
+const userData = toRef(globalState.value, 'userData');
 
 const parseStringToNumber = (startDate:String):Number => {
     const arrayStartDate: String[] = startDate.split('/');
@@ -26,16 +24,14 @@ const compareFn = (a:Formation, b:Formation) => {
     return +fechaA - +fechaB;
 }
 
-userPortfolio?.value.formations.sort(compareFn);
-
-
+userData?.value.formations.sort(compareFn);
 </script>
 <template>
-    <div class="row p-3 m-0" v-if="userPortfolio">
+    <div class="row p-3 m-0" v-if="userData">
         <div class="container px-0 d-flex flex-column align-items-center">
             <p class="text-center m-0 mb-3 fw-bold border-bottom pb-2">Formación</p>
             <div class="container-card-education d-flex flex-column gap-2 col-12 col-sm-9 col-xl-7">
-                <template v-for="formation in userPortfolio.formations">
+                <template v-for="formation in userData.formations">
                     <CardEducation :formation="formation" />
                 </template>
             </div>

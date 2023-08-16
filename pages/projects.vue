@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { useGlobalState } from '../state/useState';
-
 useHead({
     title: 'Proyectos'
 });
 
-const userPortfolio = useGlobalState();
-
-
+const globalState = useGlobalState();
+const userData = toRef(globalState.value, 'userData');
 </script>
 <template>
     <div class="row p-3 m-0">
@@ -15,8 +12,8 @@ const userPortfolio = useGlobalState();
             <p class="text-center m-0 mb-3 fw-bold border-bottom pb-2">Proyectos</p>
             <div class="container-card col-12 col-xl-10 d-flex flex-column gap-3 align-items-center">
                 <template 
-                    v-if="userPortfolio" 
-                    v-for="project in userPortfolio.projects">
+                    v-if="userData" 
+                    v-for="project in userData.projects">
                     <CardProject :project="project" />
                 </template>
             </div>

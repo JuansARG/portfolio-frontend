@@ -1,40 +1,33 @@
 <script setup lang="ts">
-import { useGlobalState } from '../state/useState';
-import { UserPortfolio } from '../interfaces/userPortfolio';
-
 useHead({
     title: 'Inicio'
 });
 
-const userPortfolio = useGlobalState();
-
-// const { data } = await useFetch<UserPortfolio>('http://localhost:8080/api/v1/users/1');
-// console.log(data.value)
-
-
+const globalState = useGlobalState();
+const userData = toRef(globalState.value, 'userData');
 </script>
 <template>
-    <div class="row p-3 m-0" v-if="userPortfolio">
+    <div class="row p-3 m-0" v-if="userData">
         <div class="container px-0">
             <div class="perfil-container d-flex flex-column gap-2 mb-3">
                 <div>
                     <p
                         class="name text-center m-0 mb-3 fw-bold border-bottom pb-2"
-                        v-text="`${userPortfolio.name} I. ${userPortfolio.surname}`"/>
+                        v-text="`${userData.name} ${userData.surname}`"/>
                     <p 
                         class="title text-center fs-2 m-0 fst-italic"
-                        v-text="userPortfolio.title"/>
+                        v-text="userData.title"/>
                 </div>
                 <div class="img-container align-self-center">
                     <img 
-                        :src="userPortfolio.imageURL" 
+                        :src="userData.imageURL" 
                         class="img-fluid rounded-circle shadow-lg" alt="Mi foto de perfil">
                 </div>
             </div>
             <div class="text-container col col-sm-7 p-2 mb-2 shadow-sm">
                 <p
                     class="text-profile fs-5 m-0"
-                    v-text="userPortfolio.profile"/>
+                    v-text="userData.profile"/>
             </div>
             <div class="icons-container d-flex gap-2 justify-content-end col col-sm-7">
                 <NuxtLink class="nav-link border p-1 rounded-3 shadow-sm" to="https://www.linkedin.com/in/juanisat/" target="_blank">

@@ -2,6 +2,8 @@
   useHead({
     titleTemplate: '%s - Juan I. Sarmiento'
   })
+
+  useAuth();
 </script>
 
 <template>

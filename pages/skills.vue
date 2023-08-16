@@ -1,28 +1,25 @@
 <script setup lang="ts">
-import { useGlobalState } from '../state/useState';
 import { Skill, TypeSkill } from '../interfaces/userPortfolio';
-
 
 useHead({
     title: 'Habilidades'
 })
 
-const userPortfolio = useGlobalState();
+const globalState = useGlobalState();
+const userData = toRef(globalState.value, 'userData');
 
 let softSkills: Skill[] = [];
 let hardSkills: Skill[] = [];
 
-if (userPortfolio) {
-    softSkills = userPortfolio.value.skills.filter(skill => skill.typeSkill === TypeSkill.Soft);
-    hardSkills = userPortfolio.value.skills.filter(skill => skill.typeSkill === TypeSkill.Hard);
+if (userData) {
+    softSkills = userData.value.skills.filter(skill => skill.typeSkill === TypeSkill.Soft);
+    hardSkills = userData.value.skills.filter(skill => skill.typeSkill === TypeSkill.Hard);
 }
-
-
 </script>
 <template>
     <div 
         class="row p-3 m-0" 
-        v-if="userPortfolio">
+        v-if="userData">
         <div class="container px-0 d-flex flex-column align-items-center ">
             <p class="text-center text-white m-0 mb-3 fw-bold border-bottom pb-2">Habilidades</p>
             <div class="soft-skills-container d-flex flex-column align-items-center w-100">
