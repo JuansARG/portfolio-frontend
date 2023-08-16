@@ -1,3 +1,6 @@
+<script setup lang="ts">
+await useAuth();
+</script>
 <template>
     <div class="d-flex flex-column">
         <header>
