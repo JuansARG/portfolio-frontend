@@ -3,7 +3,6 @@
     titleTemplate: '%s - Juan I. Sarmiento'
   });
 </script>
-
 <template>
   <NuxtLayout>
     <NuxtPage />

@@ -8,7 +8,7 @@ export const useAuth = async() => {
     const globalState = useGlobalState();
     const token = useCookie<string>('ACCESS_TOKEN');
 
-    const login = async():Promise<void> => {
+    const login = async() => {
 
         const headers = new Headers();
         headers.append('Access-Control-Allow-Origin', '*');

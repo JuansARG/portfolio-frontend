@@ -3,6 +3,8 @@ useHead({
     title: 'Inicio'
 });
 
+await useAuth();
+
 const globalState = useGlobalState();
 const userData = toRef(globalState.value, 'userData');
 </script>

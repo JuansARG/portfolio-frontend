@@ -3,7 +3,6 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      // title: "Juan I. Sarmiento Portoflio",
       link: [
         {
           rel: "stylesheet",
